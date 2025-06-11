@@ -8,7 +8,7 @@ function App() {
     
     {
         name: "Iphone 16 Pro",
-        price: "R23000",
+        price: 23000,
         imageSrc: "images/phonee.jpg",
         specifications: ["6.1-inch Super Retina XDR display",
             "A17 Pro chip with 6-core CPU and 6-core GPU",
@@ -21,7 +21,7 @@ function App() {
     {
 
         name: "Samsung Galaxy S23 Ultra",
-        price: "R22000",
+        price: 22000,
         imageSrc: "images/SAMSUNG S23 Ultra.jpg",
         specifications: ["6.8-inch Dynamic AMOLED 2X display",
             "Snapdragon 8 Gen 2 processor",
@@ -33,7 +33,7 @@ function App() {
     {
 
         name: "Google Pixel 8 Pro",
-        price: "R20000",
+        price: 15000,
         imageSrc: "images/Google Pixel 8 Pro.jpg",
         specifications: ["6.7-inch LTPO OLED display",
             "Google Tensor G3 chip",
@@ -49,10 +49,25 @@ function App() {
   return (
     <div className="App">
       <ProductList>
-      <ProductCard background="darkolivegreen" product={product[0]} onPurchase={handlePurchase}/>
-      <ProductCard product={product[1]} onPurchase={handlePurchase}/>
-      <ProductCard background="peru" product={product[2]} onPurchase={handlePurchase}/>
+
+        {product.map((product) => (
+          
+          <ProductCard product={product} key={product.name} onPurchase={handlePurchase}/>
+
+      ))}
       </ProductList>
+
+      <h2>Products that cost up to R20000</h2>
+      <ul>
+        {product
+        .filter(({price}) => price < 20000)
+        .map(({name, price}) => (
+        <li> 
+          {name} cost R{price} 
+        </li>
+      ))}
+          
+      </ul>
     </div>
   );
 }

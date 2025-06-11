@@ -23,13 +23,15 @@ function ProductCard({product, onPurchase, background ="slategray"}) {
       <p>Specifications:</p>
 
       <ul style={{ listStyle: "none", padding: 0 }}>
-        <li>{product.specifications[0]}</li>
-        <li>{product.specifications[1]}</li>
-        <li>{product.specifications[2]}</li>
-        <li>{product.specifications[3]}</li>
+        {product.specifications.map((spec, index) => (
+
+        <li key={index}>{spec}</li>
+        
+        ))}
+        
       </ul>
 
-      <button onClick={() => onPurchase(product)}>Buy (From {product.price})</button>
+      <button onClick={() => onPurchase(product)}>Buy (From R{product.price})</button>
 
     </article>
     
