@@ -17,6 +17,8 @@ function App() {
             "Up to 1TB storage option"
         ],
 
+        stockCount: 10,
+
       },
 
     {
@@ -29,6 +31,7 @@ function App() {
             "Quad-camera system with 200MP main camera",
             "Up to 1TB storage option"
         ],
+        stockCount: 5,
     },  
 
     {
@@ -40,7 +43,8 @@ function App() {
             "Google Tensor G3 chip",
             "Triple-camera system with 50MP main camera",
             "Up to 512GB storage option"
-        ]
+        ],
+        stockCount: 0,
     }];
 
     function handlePurchase(product) {

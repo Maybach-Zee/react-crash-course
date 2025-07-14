@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function ProductCard({product, onPurchase, background ="slategray"}) {
 
 
@@ -30,15 +31,31 @@ function ProductCard({product, onPurchase, background ="slategray"}) {
         ))}
         
       </ul>
+      <Status stockCount={product.stockCount} />
 
+        {product.stockCount > 0 &&(
       <button onClick={() => onPurchase(product)}>Buy (From R{product.price})</button>
+        )}
 
     </article>
     
   );
 
-  
+  function Status({ stockCount }) {  
+    
+    const notAvailableTemplate = (
+       <p style={{fontSize: "14px", color: "lightsalmon"}}> Not Available</p>
+    );
+    
+    const availableTemplate = (
+       <p style={{fontSize: "14px", color: "lightgreen"}}> 
+       {stockCount} Items Available</p>
+    );
 
-  
+    return stockCount === 0 ? notAvailableTemplate : availableTemplate;
+    
+
+  }
+   
 }
 export default ProductCard;
